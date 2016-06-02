@@ -29,9 +29,11 @@ self.addEventListener("fetch",function(event) {
 					    	.then(function(response) {
 						    	if(response){
 						    		log("Fulfilling "+event.request.url+" from cache.");
+						    		//returning response object
 						    		return response;
 						    	} else {
 						    		log(event.request.url+" not found in cache fetching from network.");
+						    		//return promise that resolves to Response object
 						    		return fetch(event.request);
 						    	}
 					    	})
