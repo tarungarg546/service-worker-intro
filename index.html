@@ -14,7 +14,7 @@
         if('serviceWorker' in navigator) {  
         	//broswer supports now register it
           	navigator.serviceWorker  
-                   .register('service-worker.js')  
+                   .register('service-worker.js') //Note that we have not passed scope object here now by default it will pick root scope 
                    .then(function() { 
                    		console.log('Service Worker Registered'); 
                    	})
@@ -27,6 +27,8 @@
     </script>
 </head>
 <body>
-
+	<div class="container">
+		Hello world!
+	</div>
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "name": "service-worker-intro",
+  "version": "1.0.0",
+  "description": "Node server for introductory tutorial of service-worker",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarungarg546/service-worker-intro.git"
+  },
+  "author": "Tarun Garg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarungarg546/service-worker-intro/issues"
+  },
+  "homepage": "https://github.com/tarungarg546/service-worker-intro#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
