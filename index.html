@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Set Meta tags-->
+	<meta charset="UTF-8">
+    <meta name="description" content="Service worker introductory tutorial">
+    <meta name="author" content="Tarun Garg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service-worker intro</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script type="text/javascript">
+    	//detect if browser supports service worker
+        if('serviceWorker' in navigator) {  
+        	//broswer supports now register it
+          	navigator.serviceWorker  
+                   .register('service-worker.js')  
+                   .then(function() { 
+                   		console.log('Service Worker Registered'); 
+                   	})
+                   	.catch(function(err) {
+                   		console.error(err);
+                   	})
+        } else {
+        	console.log("Ahh! Your browser does not supports serviceWorker");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
