@@ -1,5 +1,5 @@
 var log=console.log.bind(console);//bind our console to a variable
-var version="0.0.1";
+var version="0.0.2";
 var cacheName="sw-demo";
 var cache=cacheName+"-"+version;
 var filesToCache=[
@@ -38,4 +38,21 @@ self.addEventListener("fetch",function(event) {
 						    	}
 					    	})
   					);
+});
+self.addEventListener('activate', function(event){
+  log('[ServiceWorker] Activate');
+  event.waitUntil(
+				    caches.keys()//it will return all the keys in the cache as an array
+				    .then(function(keyList){
+				    		//run everything in parallel using Promise.all()
+				      		Promise.all(keyList.map(function(key){
+						        	if (key != cache) {
+						        		log('[ServiceWorker] Removing old cache ', key);
+						        		//if key doesn`t matches with present key
+						          		return caches.delete(key);
+						        	}
+				      			})
+				      		);
+				    	})
+  				);
 });
