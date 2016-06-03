@@ -16,7 +16,12 @@ self.addEventListener("install",function(event) {
       					.open(cache)//open this cache from caches and it will return a Promise
       					.then(function(cache) { //catch that promise
       						log('[ServiceWorker] Caching files');
-        					cache.addAll(filesToCache);//add all required files to cache it also returns a Promise
+      						//here we are making use of promise chaining and returning when this is completed
+        					return cache.addAll(filesToCache);//add all required files to cache it also returns a Promise
+      					})
+      					.then(function() {
+      						//This code will prevent the service worker from waiting until all of the currently open tabs on your site are closed before it becomes active
+      						self.skipWaiting();
       					})
     				); 
 });
